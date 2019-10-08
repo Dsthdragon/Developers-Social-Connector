@@ -34,7 +34,7 @@ module.exports = async function login(req, res) {
   };
 
   // get the token
-  const token = await jwtToken.sign(payload);
+  const token = await jwtToken.sign(payload, '12345678');
 
   return res.json({ success: true, token: "Bearer " + token });
 };

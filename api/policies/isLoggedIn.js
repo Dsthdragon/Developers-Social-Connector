@@ -28,7 +28,7 @@ module.exports = function(req, res, proceed) {
   }
 
   // validate token
-  jwtToken.verify(token, function(err, decoded) {
+  jwtToken.verify(token, '12345678', function(err, decoded) {
     // return if it is an invalid token
     if (err) {
       return res.status(401).json({ error: "Invalid token" });

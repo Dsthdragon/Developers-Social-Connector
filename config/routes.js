@@ -9,7 +9,7 @@
  */
 
 module.exports.routes = {
-  "/": { action: "welcome" },
+  
   "GET /api/v1/:handle": { action: "profile/getprofilebyhandle" },
   "GET /api/v1/profile": { action: "profile/getprofile" },
   "GET /api/v1/profile/user/:user_id": { action: "profile/getprofilebyid" },
@@ -41,5 +41,11 @@ module.exports.routes = {
   },
   "DELETE /api/v1/post/comment/:post_id/:comment_id": {
     action: "post/deletecomment"
-  }
+  },
+  "get *": { 
+    view: "index",
+    skipAssets: 'true',
+    skipRegex: /^\/api\/.*$/
+    }
+  ,
 };
